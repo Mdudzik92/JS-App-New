@@ -15,4 +15,11 @@ function populateVoices() {
 		)
 		.join("");
 }
+
+function setVoice() {
+	// Finding corresponding SpeechSynthesis voice object
+	msg.voice = voices.find((voice) => voice.name === this.value);
+}
+
 speechSynthesis.addEventListener("voiceschanged", populateVoices);
+voicesDropdown.addEventListener("change", setVoice);
